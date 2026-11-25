@@ -1,0 +1,10 @@
+{
+	"apiVersion": 1,
+	"id": "zh-cn-localization",
+	"name": "简体中文汉化",
+	"version": "1.0.0",
+	"minAppVersion": "0.7.0",
+	"description": "把 LearnHarness 的界面文案实时替换为简体中文。学习内容、代码块、公式与输入区不会被改动。",
+	"author": "Feiyu3",
+	"main": "main.js"
+}

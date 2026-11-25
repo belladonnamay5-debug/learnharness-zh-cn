@@ -1,0 +1,25 @@
+{
+	"name": "learnharness-zh-cn",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"description": "LearnHarness 简体中文汉化插件",
+	"license": "MIT",
+	"author": "Feiyu3",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/belladonnamay5/learnharness-zh-cn.git"
+	},
+	"homepage": "https://github.com/belladonnamay5/learnharness-zh-cn#readme",
+	"bugs": {
+		"url": "https://github.com/belladonnamay5/learnharness-zh-cn/issues"
+	},
+	"scripts": {
+		"build": "node build.mjs",
+		"test": "node test/test-translate.mjs && node test/test-dom.mjs",
+		"install-plugin": "node install.mjs"
+	},
+	"devDependencies": {
+		"linkedom": "^0.18.5"
+	}
+}
