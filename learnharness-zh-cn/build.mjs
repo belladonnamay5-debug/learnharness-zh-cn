@@ -64,7 +64,7 @@ const MANIFEST = {
 	version: VERSION,
 	minAppVersion: MIN_APP_VERSION,
 	description: "把 LearnHarness 的界面文案实时替换为简体中文。学习内容、代码块、公式与输入区不会被改动。",
-	author: "Feiyu3",
+	author: "belladonnamay5",
 	main: "main.js",
 };
 

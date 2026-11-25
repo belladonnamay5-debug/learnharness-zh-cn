@@ -8,7 +8,7 @@
 - 实现方式：运行时 DOM 替换（应用本身没有 i18n 框架，文案硬编码在组件里）
 - 仓库：<https://github.com/belladonnamay5/learnharness-zh-cn>
 
-> **想直接装上用**：跳到 [方式一](#方式一直接用预构建产物推荐不需要-node)，三行命令搞定。
+> **想直接装上用**：懒得折腾就下 ZIP 走 [方式三](#方式三直接解压-zip-到插件文件夹)，解压到插件目录即可；有 git 走 [方式一](#方式一直接用预构建产物推荐不需要-node)。
 
 ---
 
@@ -52,8 +52,8 @@
    git clone https://github.com/belladonnamay5/learnharness-zh-cn.git zh-cn-localization
    ```
 
-   没有 git 就下载 ZIP，解压后把文件夹重命名为 `zh-cn-localization`。
-   目录里最终应该有 `dist/manifest.json` 和 `dist/main.js`。
+   没有 git 就用 [方式三](#方式三直接解压-zip-到插件文件夹)：下载 ZIP 解压到同一目录，效果一样。
+   目录里最终应该有 `plugins/zh-cn-localization/dist/manifest.json` 和 `dist/main.js`。
 
 3. 打开 LearnHarness → 设置 → **社区插件** → 点 **刷新列表** → 打开「简体中文汉化」的开关。
 
@@ -83,6 +83,49 @@ LEARNHARNESS_DATA_DIR="D:/somewhere/LearnHarness/data" npm run install-plugin
 ```
 
 装完同样要重启 LearnHarness。
+
+### 方式三：直接解压 ZIP 到插件文件夹
+
+不需要 Node，不需要 git，只要一个压缩包。适合换机器、备份、或发给朋友。
+
+1. 从 [Releases](../../releases) 页下载 `zh-cn-localization.zip`。
+2. 把它**直接解压进插件目录**（路径同方式一的表格）：
+
+   | 平台 | 解压目标 |
+   | --- | --- |
+   | Windows | `%APPDATA%\LearnHarness\data\plugins` |
+   | macOS | `~/Library/Application Support/LearnHarness/data/plugins` |
+   | Linux | `~/.config/LearnHarness/data/plugins` |
+
+   Windows 图形界面：右键 ZIP → **全部解压缩** → 目标填
+   `C:\Users\<你>\AppData\Roaming\LearnHarness\data\plugins` → 解压。
+
+   Windows 命令行：
+
+   ```powershell
+   Expand-Archive "$HOME\Downloads\zh-cn-localization.zip" `
+     -DestinationPath "$env:APPDATA\LearnHarness\data\plugins" -Force
+   ```
+
+   macOS / Linux：
+
+   ```bash
+   unzip zh-cn-localization.zip -d "$HOME/Library/Application Support/LearnHarness/data/plugins"  # macOS
+   unzip zh-cn-localization.zip -d "$HOME/.config/LearnHarness/data/plugins"                       # Linux
+   ```
+
+3. 确认目录层级 —— 压缩包顶层文件夹已经是插件 ID，**不要改名、不要再多套一层**：
+
+   ```
+   plugins/zh-cn-localization/dist/manifest.json   ✓
+   plugins/zh-cn-localization/dist/main.js         ✓
+   ```
+
+4. 打开 LearnHarness → 设置 → **社区插件** → **刷新列表** → 打开「简体中文汉化」。
+5. **重启 LearnHarness**。
+
+> 解压后目录变成 `plugins/zh-cn-localization/zh-cn-localization/dist/…`，说明多套了一层，插件不会被识别 —— 把里层文件夹提出来即可。
+> 直接把 `dist` 拖进 `plugins` 也不认，应用是按「文件夹名 = 插件 ID」找的。
 
 ---
 
